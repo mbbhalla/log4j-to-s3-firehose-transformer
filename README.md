@@ -1,6 +1,7 @@
 # Helper lambda functions for storing log4j logs in S3 and querying them via Athena
-# Log data flows as follows
-# Application host with log4j ---> AWS CloudWatch Logs ---(Subscription to Firehose)---> AWS S3 <---(Query)--- AWS Athena
+
+Log data flows as follows
+Application host with log4j ---> AWS CloudWatch Logs ---(Subscription to Firehose)---> AWS S3 <---(Query)--- AWS Athena
 
 There are 2 functions in the package:
 1. FirehoseTransformerFunction:         Firehose transformer function which transforms CloudWatch Logs records to a format suitable for Athena Querying
