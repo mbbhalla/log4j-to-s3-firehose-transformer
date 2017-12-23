@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: Provides 2 lambda functions used for logging pipeline => Log4J -> CloudwatchLogs -> Firehose -> S3
 
 Parameters:
-  kms_key_id:
+  KmsKeyId:
     Type: String
     Description: KMS Key ID used to encrypt file while writing to S3 by S3FileGzipExtensionAdderFunction
 
@@ -15,7 +15,7 @@ Resources:
       Handler: index.FireHoseTransformer
       Runtime: nodejs6.10
       Timeout: 300
-      CodeUri: index.js
+      CodeUri: s3://<bucket>/log4j-to-s3-firehose-transformer.zip
            
   # Event type: ObjectCreatedByPut
   # Set this on S3 bucket where it is required for files to be renamed to .GZ on Creation
@@ -25,7 +25,7 @@ Resources:
       Handler: index.S3FileGzipExtensionAdder
       Runtime: nodejs6.10
       Timeout: 300
-      CodeUri: index.js
+      CodeUri: s3://<bucket>/log4j-to-s3-firehose-transformer.zip
       Environment:
         Variables:
-          KMS_KEY_ID: !Ref kms_key_id
+          KMS_KEY_ID: !Ref KmsKeyId
