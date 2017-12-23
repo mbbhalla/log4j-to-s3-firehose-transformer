@@ -15,7 +15,7 @@ Resources:
       Handler: index.FireHoseTransformer
       Runtime: nodejs6.10
       Timeout: 300
-      CodeUri: s3://<bucket>/log4j-to-s3-firehose-transformer.zip
+      CodeUri: s3://mabh-serverless-apps-bucket/log4j-to-s3-firehose-transformer.zip
            
   # Event type: ObjectCreatedByPut
   # Set this on S3 bucket where it is required for files to be renamed to .GZ on Creation
@@ -25,7 +25,7 @@ Resources:
       Handler: index.S3FileGzipExtensionAdder
       Runtime: nodejs6.10
       Timeout: 300
-      CodeUri: s3://<bucket>/log4j-to-s3-firehose-transformer.zip
+      CodeUri: s3://mabh-serverless-apps-bucket/log4j-to-s3-firehose-transformer.zip
       Environment:
         Variables:
           KMS_KEY_ID: !Ref KmsKeyId
