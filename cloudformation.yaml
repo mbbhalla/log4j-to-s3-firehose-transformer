@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion : '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: Provides 2 lambda functions used for logging pipeline : Log4J -> CloudwatchLogs -> Firehose -> S3
+Description: Provides 2 lambda functions used for logging pipeline => Log4J -> CloudwatchLogs -> Firehose -> S3
 
 Parameters:
   kms_key_id:
